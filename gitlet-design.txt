@@ -1,0 +1,34 @@
+Gitlet Design Document
+----------------------
+Key notion: Git is not constantly running the background. Hence after every command the program terminates. Therefore, information
+must be saved to the disc via SHA1 serialization.
+
+Classes and Data Structures
+---------------------------
+Blob - Contains file content (Can be serialized)
+    File, name. id, contents
+
+Commit - Stores the meta data of a commit (Can be serialized)
+    Message, ParentID, HashMap< String, Blobs>
+
+StagingArea - where files are held to be added or removed (Uses serialized HashMaps)
+    2 HashMaps of blobs <String, Blob> (add / remove)
+
+Head - a class that will store relevant information pertaining to current commit and branches
+    Active branch , HashMap<String branch, String CommitID>
+
+Commands - A large class that will represent all the actions of gitlet commands
+
+Main - Takes Args inputs and converts them to Commands (extends Commands)
+
+Algorithms
+----------
+I will use HashMaps to maintain runtime requirements. (Spec: "You can also pretend that getting from a hash table is constant time."
+
+Persistence
+-----------
+In order to persist we will need to save many different files and object as a user interacts with gitlet. Initially, hidden directories will be:
+.gitlet/Blobs/
+.gitlet/Commits/
+.gitlet/head
+.gitlet/stagingArea

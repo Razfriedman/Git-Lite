@@ -1,0 +1,19 @@
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
+> commit "1st"
+<<<
+> branch zzz
+<<<
+> checkout zzz
+<<<
++ notwug.txt notwug.txt
+> add notwug.txt
+<<<
+> commit "2nd"
+<<<
+> checkout master
+<<<
+* notwug.txt

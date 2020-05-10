@@ -1,0 +1,10 @@
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
+> commit "1st"
+<<<
+> checkout master
+No need to checkout the current branch.
+<<<
